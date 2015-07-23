@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="stockModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="stockModelStoreContainer">
+          <EntitySet Name="DayData" EntityType="stockModel.Store.DayData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DayDetail" EntityType="stockModel.Store.DayDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StockItem" EntityType="stockModel.Store.StockItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_cwzy" EntityType="stockModel.Store.T_cwzy" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="DayData">
+          <Key>
+            <PropertyRef Name="StockCode" />
+            <PropertyRef Name="Area" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="StockCode" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="Area" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Open" Type="decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="High" Type="decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="Low" Type="decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="Close" Type="decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="Volume" Type="decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="AdjClose" Type="decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="CreateAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DayDetail">
+          <Key>
+            <PropertyRef Name="StockCode" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="StockCode" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="Area" Type="varchar" MaxLength="2" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Open" Type="decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="High" Type="decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="Low" Type="decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="Close" Type="decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="Volume" Type="decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="Scale" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StockItem">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Area" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="32" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="8" />
+          <Property Name="Area" Type="varchar" Nullable="false" MaxLength="8" />
+          <Property Name="Categories" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="T_cwzy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="mgjzc" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="mgsy" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="mgxjhl" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="mgzbgjj" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="mgzchj" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="ldzchj" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="zchj" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="cqfzhj" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="zyywsr" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="cwfy" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="jlr" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="jzrq" Type="date" />
+          <Property Name="stockCode" Type="varchar" Nullable="false" MaxLength="8" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="stockModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="StockContext1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DayData" EntityType="stockModel.DayData" />
+          <EntitySet Name="DayDetail" EntityType="stockModel.DayDetail" />
+          <EntitySet Name="StockItem" EntityType="stockModel.StockItem" />
+          <EntitySet Name="T_cwzy" EntityType="stockModel.CWZY" />
+        </EntityContainer>
+        <EntityType Name="DayData">
+          <Key>
+            <PropertyRef Name="StockCode" />
+            <PropertyRef Name="Area" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="StockCode" Type="String" Nullable="false" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="Area" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Open" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="High" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="Low" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="Close" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="Volume" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="AdjClose" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="CreateAt" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="DayDetail">
+          <Key>
+            <PropertyRef Name="StockCode" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="StockCode" Type="String" Nullable="false" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="Area" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Open" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="High" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="Low" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="Close" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="Volume" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="Scale" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StockItem">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Area" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="Area" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="Categories" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="CWZY">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Decimal" Name="mgjzc" Precision="20" Scale="4" />
+          <Property Type="Decimal" Name="mgsy" Precision="20" Scale="4" />
+          <Property Type="Decimal" Name="mgxjhl" Precision="20" Scale="4" />
+          <Property Type="Decimal" Name="mgzbgjj" Precision="20" Scale="4" />
+          <Property Type="Decimal" Name="mgzchj" Precision="20" Scale="4" />
+          <Property Type="Decimal" Name="ldzchj" Precision="20" Scale="4" />
+          <Property Type="Decimal" Name="zchj" Precision="20" Scale="4" />
+          <Property Type="Decimal" Name="cqfzhj" Precision="20" Scale="4" />
+          <Property Type="Decimal" Name="zyywsr" Precision="20" Scale="4" />
+          <Property Type="Decimal" Name="cwfy" Precision="20" Scale="4" />
+          <Property Type="Decimal" Name="jlr" Precision="20" Scale="4" />
+          <Property Type="DateTime" Name="jzrq" />
+          <Property Type="String" Name="stockCode" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="stockModelStoreContainer" CdmEntityContainer="StockContext1">
+          <EntitySetMapping Name="DayData">
+            <EntityTypeMapping TypeName="stockModel.DayData">
+              <MappingFragment StoreEntitySet="DayData">
+                <ScalarProperty Name="StockCode" ColumnName="StockCode" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Open" ColumnName="Open" />
+                <ScalarProperty Name="High" ColumnName="High" />
+                <ScalarProperty Name="Low" ColumnName="Low" />
+                <ScalarProperty Name="Close" ColumnName="Close" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="AdjClose" ColumnName="AdjClose" />
+                <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DayDetail">
+            <EntityTypeMapping TypeName="stockModel.DayDetail">
+              <MappingFragment StoreEntitySet="DayDetail">
+                <ScalarProperty Name="StockCode" ColumnName="StockCode" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Open" ColumnName="Open" />
+                <ScalarProperty Name="High" ColumnName="High" />
+                <ScalarProperty Name="Low" ColumnName="Low" />
+                <ScalarProperty Name="Close" ColumnName="Close" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="Scale" ColumnName="Scale" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockItem">
+            <EntityTypeMapping TypeName="stockModel.StockItem">
+              <MappingFragment StoreEntitySet="StockItem">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Categories" ColumnName="Categories" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_cwzy">
+            <EntityTypeMapping TypeName="stockModel.CWZY">
+              <MappingFragment StoreEntitySet="T_cwzy">
+                <ScalarProperty Name="stockCode" ColumnName="stockCode" />
+                <ScalarProperty Name="jzrq" ColumnName="jzrq" />
+                <ScalarProperty Name="jlr" ColumnName="jlr" />
+                <ScalarProperty Name="cwfy" ColumnName="cwfy" />
+                <ScalarProperty Name="zyywsr" ColumnName="zyywsr" />
+                <ScalarProperty Name="cqfzhj" ColumnName="cqfzhj" />
+                <ScalarProperty Name="zchj" ColumnName="zchj" />
+                <ScalarProperty Name="ldzchj" ColumnName="ldzchj" />
+                <ScalarProperty Name="mgzchj" ColumnName="mgzchj" />
+                <ScalarProperty Name="mgzbgjj" ColumnName="mgzbgjj" />
+                <ScalarProperty Name="mgxjhl" ColumnName="mgxjhl" />
+                <ScalarProperty Name="mgsy" ColumnName="mgsy" />
+                <ScalarProperty Name="mgjzc" ColumnName="mgjzc" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="stockModel.DayData" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9251310221354165" IsExpanded="true" />
+        <EntityTypeShape EntityType="stockModel.DayDetail" Width="1.5" PointX="2.75" PointY="0.75" Height="2.7341113281249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="stockModel.StockItem" Width="1.5" PointX="4.75" PointY="0.75" Height="1.7790128580729165" IsExpanded="true" />
+        <EntityTypeShape EntityType="stockModel.CWZY" Width="2.75" PointX="0.75" PointY="4.75" Height="3.6892097981770835" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

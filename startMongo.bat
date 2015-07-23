@@ -1,0 +1,1 @@
+mongod -dbpath "C:\Work\Source\StockSpider\Fin_Data"
